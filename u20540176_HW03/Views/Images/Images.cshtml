@@ -1,0 +1,28 @@
+﻿@using u20540176_HW03.Models
+@model List<FileModel>
+@{
+    ViewBag.Title = "Images";
+}
+
+    <div class="row">
+        <h1>Files of type Image</h1>
+        <p class="lead">Here documents should be displayed from the /Media/Images folder to the table below</p>
+
+    </div>
+
+    <div class="row" style="background-color:aliceblue;">
+        @foreach (FileModel img in Model)
+        {
+        <div class="row">
+            <img src=@img.FileName>
+            <p>@img.FileName</p>
+            <button class="btn btn-success">
+                @Html.ActionLink("Download", "DownloadFile", new { fileName = img.FileName })
+            </button>
+            <button class="btn btn-danger">
+                @Html.ActionLink("Delete", "DeleteFile", new { fileName = img.FileName },
+            new {onclick = "return confirm('Are you sure you want to delete this?');"})
+            </button>
+        </div>
+        }
+        </div>

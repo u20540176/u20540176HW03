@@ -1,0 +1,65 @@
+﻿@model u20540176_HW03.Models.FileModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <h1>My Media System</h1>
+    <p class="lead">My media system will be able to upload files, images and videos to my local C: drive</p>
+   
+</div>
+
+<div class="row" style="background-color:aliceblue;">
+    <div class="col-md-4">
+        <h2>Description</h2>
+        <p>
+            Uploading files from a client computer to the remote server is quite a common task for many websites and applications. It’s widely used in social nets, forums, online auctions, etc.
+            There are a variety of upload components in ASP.NET MVC that serve to resolve one or another upload tasks, for example you may need to upload single or multiple files, work with files of small or very large size, transfer entire folders or files only, just upload images or videos. Thus, you need to find the upload tool that is not only fast and reliable, but also suits your requirements.
+            Here we'll explore which upload approach is better to use when, but before that let's take a look at ASP.NET MVC file upload in general.
+        </p>
+        
+    </div>
+    <div class="col-md-4">
+        <h2>Option selection</h2>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+   
+    <div>
+        <input type="radio" name="document" value="Document" id="document" />
+        <label for="document">Document</label>
+        <br />
+        <input type="radio" name="image" value="Image" id="image" />
+        <label for="image">Image</label>
+        <br />
+        <input type="radio" name="video" value="Video" id="video" />
+        <label for="video">Video</label>
+        <br />
+    </div>
+            <br/>
+            <div>
+                <input type="file" name="Files" value="Browse..." id="upload" />
+                <br/>
+                <input type="submit" name="Submit" value="Submit" />
+            </div>
+        }
+
+    </div>
+  
+</div>
+
+@{ <script>
+    var files = document.getElementById("document")
+    var image = document.getElementById("image")
+    var video = document.getElementById("video")
+
+    
+    if (files.checked == true)
+    {
+
+    }
+
+    </script>
+
+}
+

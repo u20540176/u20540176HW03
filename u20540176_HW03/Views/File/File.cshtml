@@ -1,0 +1,38 @@
+﻿@using u20540176_HW03.Models
+@model List<FileModel>
+
+@{
+    ViewBag.Title = "File";
+}
+    <div class="row">
+        <h1>Files of type Document</h1>
+        <p class="lead">Here documents should be displayed from the /Media/Documents folder to the table below</p>
+
+    </div>
+
+    <div class="row" style="background-color:aliceblue;">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">File Name</th>
+                    <th scope="col">Download Option</th>
+                    <th scope="col">Delete Option</th>
+                </tr>
+            </thead>
+            @foreach (FileModel file in Model)
+            {
+                <tr>
+                    
+                    <td>@file.FileName</td>
+                    <td><button class="btn btn-success">@Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName })
+                        </button>
+                    </td>
+                    <td><button class="btn btn-danger">@Html.ActionLink("Delete", "DeleteFile", new { fileName = file.FileName },
+                        new {onclick = "return confirm('Are you sure you want to delete this?');"})
+                        </button></td>
+                </tr>
+            }
+              
+           
+        </table>
+    </div>

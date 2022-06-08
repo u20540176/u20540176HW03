@@ -1,0 +1,30 @@
+﻿@using u20540176_HW03.Models
+@model List<FileModel>
+@{
+    ViewBag.Title = "Video";
+}
+
+<div class="row">
+    <h1>Files of type Video</h1>
+    <p class="lead">Here documents should be displayed from the /Media/Videos folder to the table below</p>
+
+</div>
+
+<div class="row" style="background-color:aliceblue;">
+    @foreach (FileModel video in Model)
+    {
+        <div class="row">
+            <video src=@video.FileName>Video 1</video>
+            <p>@video.FileName</p>
+            <button class="btn btn-success">
+                @Html.ActionLink("Download", "DownloadFile", new { fileName = video.FileName })
+            </button>
+            <button class="btn btn-danger">
+                @Html.ActionLink("Delete", "DeleteFile", new { fileName = video.FileName },
+                new {onclick = "return confirm('Are you sure you want to delete this?');"})
+            </button>
+        </div>
+    }
+</div>
+
+
